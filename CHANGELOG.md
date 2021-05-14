@@ -1,3 +1,33 @@
+## 0.13.0
+- using deferred provider so that the real folding provider is loaded after the language's folding provider. By doing so, the folding ranges provided by the extension are given an higher importance, so VSCode is using them instead of the ones from the language's folding provider (if there is a conflict).
+
+## 0.12.1
+- fix need to reload VSCode when changing `explicitFolding.debug`
+
+## 0.12.0
+- add the configuration `explicitFolding.debug` to print out debug informations into the channel `Folding` of the panel `Output`
+- add `foldEOF` property which will close the folding at the end of the file
+- add `foldBOF` property, only for separators
+- add `descendants` property, only for separators
+- add `strict` property, only for separators
+- `^` is correctly matching the beginning of a line
+- use new regex parser to support `(?<=y)x`, `(?<!y)x`, `(?i)x` and `(?i:x)`
+- add unit tests
+
+## 0.11.0
+- add `indentation` property
+- add flag indicating that the extension is managing how to fold the last line (only for [MrCode](https://github.com/zokugun/MrCode))
+
+## 0.10.0
+- add dynamic `foldLastLine`
+
+## 0.9.2
+- register provider to all applicable schemes
+
+## 0.9.1
+- allows provider on all schemes
+- fix README
+
 ## 0.9.0
 - add the configuration `explicitFolding.startupDelay` which will delay the registration of the folding providers when starting up (1000ms by default). It's fixing the issue when the editor wasn't using the correct foldings at startup.
 - add the configuration `explicitFolding.notification` to manage the notifications. By default, the notifications will be shown only for minor revisions
