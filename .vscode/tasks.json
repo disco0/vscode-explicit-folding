@@ -15,6 +15,57 @@
 				"kind": "build",
 				"isDefault": true
 			}
+		},
+		{
+			"label": "watch:schema",
+			"type": "shell",
+			"group": "build",
+			"presentation": {
+				"clear": false,
+				"echo": true,
+				"focus": false,
+				"group": "watcher",
+				"panel": "new",
+				"reveal": "always",
+				"showReuseMessage": false
+			},
+			"runOptions": {
+				"runOn": "folderOpen",
+				"instanceLimit": 1,
+				"reevaluateOnRerun": true
+			},
+			"command": "tsc",
+			"args": [
+				{ "value": "-w", "quoting": "weak" },
+				{ "value": "-p", "quoting": "weak" },
+				{ "value": "temp", "quoting": "escape" }
+			]
+		},
+		{
+			"label": "watch:updateSchemaOutput",
+			"type": "shell",
+			"group": "build",
+			"presentation": {
+				"clear": false,
+				"echo": true,
+				"focus": false,
+				"group": "watcher",
+				"panel": "new",
+				"reveal": "always",
+				"showReuseMessage": false
+			},
+			"runOptions": {
+				"runOn": "folderOpen",
+				"instanceLimit": 1,
+				"reevaluateOnRerun": true
+			},
+			"command": "watchexec",
+			"args": [
+				{"value": "--postpone", "quoting": "weak" },
+				{"value": "--watch=temp/schema.js" , "quoting": "weak" },
+				{"value": "node", "quoting": "weak" },
+				{"value": "temp/schema.js", "quoting": "weak" },
+			]
 		}
 	]
 }
